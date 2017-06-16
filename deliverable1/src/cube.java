@@ -7,6 +7,24 @@
 import java.util.Scanner;
 
 public class cube {
+
+    public static int cubeIt(String num){
+        //loops through length of original number
+        int newTotal = 0;
+        for (int i = 0; i < num.length();i++){
+            int digit = Character.digit(num.charAt(i),10);
+
+            //cubes individual numbers as double
+            double stored = Math.pow(digit,3);
+
+            //adds cubed numbers together as int
+            newTotal +=  stored;
+
+            System.out.printf("%d cubed equals: %.0f \n", digit, stored);
+
+        }
+        return newTotal;
+    }
     public static void main(String[] args){
 
         //inputs original number
@@ -24,19 +42,7 @@ public class cube {
         //converts original number to string to breakdown length
         String num = String.valueOf(original);
 
-        //loops through length of original number
-        int newTotal = 0;
-        for (int i = 0; i < num.length();i++){
-            int digit = Character.digit(num.charAt(i),10);
-
-            //cubes individual numbers as double
-           double stored = Math.pow(digit,3);
-
-            //adds cubed numbers together as int
-            newTotal +=  stored;
-
-            System.out.printf("%d cubed equals: %.0f \n", digit, stored);
-        }
+        int newTotal = cubeIt(num);
         //bonus output
         System.out.printf("Adding up the cubed integers equals: %d \n", newTotal);
         System.out.printf("The original number equaled: %d \n", original);
